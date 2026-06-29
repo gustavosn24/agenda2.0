@@ -1,0 +1,102 @@
+<div class="container">
+
+  <div class="card">
+
+    <h1>Agenda de Contatos</h1>
+
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Nome</label>
+
+        <input
+          type="text"
+          formControlName="nome">
+
+        <small *ngIf="isInvalid('nome')">
+          Informe um nome válido.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Telefone</label>
+
+        <input
+          type="text"
+          formControlName="telefone">
+
+        <small *ngIf="isInvalid('telefone')">
+          Informe um telefone válido.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>E-mail</label>
+
+        <input
+          type="email"
+          formControlName="email">
+
+        <small *ngIf="isInvalid('email')">
+          Informe um e-mail válido.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Aniversário</label>
+
+        <input
+          type="date"
+          formControlName="aniversario">
+
+        <small *ngIf="isInvalid('aniversario')">
+          Informe a data.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Tipo</label>
+
+        <select formControlName="tipo">
+
+          <option value="">
+            Selecione...
+          </option>
+
+          <option
+            *ngFor="let tipo of tiposContato"
+            [value]="tipo">
+
+            {{ tipo }}
+
+          </option>
+
+        </select>
+
+        <small *ngIf="isInvalid('tipo')">
+          Selecione um tipo.
+        </small>
+
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        Adicionar Contato
+
+      </button>
+
+    </form>
+
+    <div
+      class="alert alert-success"
+      *ngIf="mensagemSucesso">
+
+      {{ mensagemSucesso }}
+
+    </div>
+
+  </div>
+
+</div>

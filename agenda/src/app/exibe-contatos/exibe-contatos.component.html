@@ -1,0 +1,42 @@
+<table border="1">
+
+    <thead>
+
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Aniversário</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr *ngFor="let contato of contatos">
+
+            <td>{{ contato.getNome() }}</td>
+
+            <td>{{ contato.getTelefone() }}</td>
+
+            <td>{{ contato.getEmail() }}</td>
+
+            <td>{{ formatarData(contato.getAniversario()) }}</td>
+
+            <td>{{ contato.getTipo() }}</td>
+
+            <td>
+
+                <button class="btn-delete" (click)="remover(contato)" title="Remover">
+                    🗑️
+                </button>
+
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
