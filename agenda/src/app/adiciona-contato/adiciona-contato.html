@@ -3,6 +3,20 @@
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" 
         formControlName="nome">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" 
+           formControlName="email">
+
+        <label for="aniversario">Data de Anivesário</label>
+        <input type="date" name="anivesario" id="anivesario"
+           formControlName="anivesario">
+
+        <label for="tipo">Tipo</label>
+        <select id="tipo" formControlName="tipo">
+            <option [value]="TipoContato.AMIGO">Amigo</option>
+            <option [value]="TipoContato.DESCONHECIDO">Desconhecido</option>
+        </select>
     </div>
     <div>
         <input type="button" value="Adicionar" 

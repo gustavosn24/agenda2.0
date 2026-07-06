@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { AgendaService } from '../model/agenda-service';
 import { TipoContato } from '../model/contato';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { email } from '@angular/forms/signals';
+import { TipoContato } from '../model/contato';
 
 @Component({
   selector: 'app-adiciona-contato',
@@ -9,20 +11,28 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './adiciona-contato.html',
   styleUrl: './adiciona-contato.scss',
 })
+
 export class AdicionaContato {
+
+  TipoContato = TipoContato,
   #agendaService = inject(AgendaService)  
   #fb = inject(FormBuilder)
   protected formContato: FormGroup;
+
   constructor() {
     this.formContato = this.#fb.group({
       nome: [''],
-      aniversario: [new Date()],
+      email:  [''],
+      aniversario: [''],
       telefone: [''],
-      tipo: TipoContato.AMIGO
+      tipo: [TipoContato.AMIGO]
     })
   }
   adicionar() {
     const contato = this.formContato.value
-    if (contato) { this.#agendaService.adicionar(contato) }
+    this.#agendaService.adicionar(contato);
+    this.formContato.reset({
+      tipo: TipoContato.AMIGO
+    });
   }
 }
