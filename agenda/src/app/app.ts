@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component, signal } from '@angular/core';
+import { ExibeContatos } from "./exibe-contatos/exibe-contatos";
+import { AdicionaContato } from "./adiciona-contato/adiciona-contato";
+import { ContadorContatos } from "./contador-contatos/contador-contatos";
 
-import { AppComponent } from './app.component';
-
-@NgModule({
-  imports: [
-    BrowserModule,
-    AppComponent
-  ],
-  bootstrap: [AppComponent]
+@Component({
+  selector: 'app-root',
+  imports: [ExibeContatos, AdicionaContato, ContadorContatos],
+  templateUrl: './app.html',
+  styleUrl: './app.scss'
 })
-export class AppModule {}
+export class App {
+  protected readonly title = signal('agenda');
+}
