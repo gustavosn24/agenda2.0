@@ -8,14 +8,20 @@
         <input type="email" name="email" id="email" 
            formControlName="email">
 
-        <label for="aniversario">Data de Anivesário</label>
-        <input type="date" name="anivesario" id="anivesario"
-           formControlName="anivesario">
+        <label for="telefone">Telefone</label>
+        <input type="number" name="telefone" id="telefone" 
+           formControlName="telefone">
+
+        <label for="aniversario">Data de Aniversário</label>
+        <input type="date" name="aniversario" id="aniversario"
+           formControlName="aniversario">
 
         <label for="tipo">Tipo</label>
         <select id="tipo" formControlName="tipo">
-            <option [value]="TipoContato.AMIGO">Amigo</option>
-            <option [value]="TipoContato.DESCONHECIDO">Desconhecido</option>
+            <option [value]="TipoContato.AMIGO">Amigo(a)</option>
+            <option [value]="TipoContato.FAMILIA">Família</option>
+            <option [value]="TipoContato.TRABALHO">Trabalho</option>
+            <option [value]="TipoContato.OUTROS">Outros</option>
         </select>
     </div>
     <div>

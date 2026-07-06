@@ -2,8 +2,6 @@ import { Component, inject } from '@angular/core';
 import { AgendaService } from '../model/agenda-service';
 import { TipoContato } from '../model/contato';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { email } from '@angular/forms/signals';
-import { TipoContato } from '../model/contato';
 
 @Component({
   selector: 'app-adiciona-contato',
@@ -14,7 +12,7 @@ import { TipoContato } from '../model/contato';
 
 export class AdicionaContato {
 
-  TipoContato = TipoContato,
+  TipoContato = TipoContato
   #agendaService = inject(AgendaService)  
   #fb = inject(FormBuilder)
   protected formContato: FormGroup;
@@ -25,9 +23,11 @@ export class AdicionaContato {
       email:  [''],
       aniversario: [''],
       telefone: [''],
-      tipo: [TipoContato.AMIGO]
+      tipo: ['']
     })
   }
+
+  
   adicionar() {
     const contato = this.formContato.value
     this.#agendaService.adicionar(contato);

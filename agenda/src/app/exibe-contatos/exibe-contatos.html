@@ -1,9 +1,9 @@
 <ul>
 @for (cc of obterContatos(); track cc.email) {
-    <li>{{ cc.nome }} -
-        Email: {{ cc.email }} -
-        {{ cc.aniversario | date: 'dd/MM/yyyy' }} - 
-        {{cc.tipo == TipoContato ? 'amigo' : 'conhecido' }}
+    <li>Nome: {{ cc.nome }} <br>
+        Email: {{ cc.email }} <br>
+        Aniversário: {{ cc.aniversario | date: 'dd/MM/yyyy' }} <br>
+        Tipo: {{ cc.tipo }}
         <button (click)="remover(cc)">Remover</button>
     </li>
 }

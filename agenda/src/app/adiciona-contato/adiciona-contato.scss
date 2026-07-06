@@ -44,3 +44,23 @@ input[type="button"] {
 input[type="button"]:hover {
   background: #2f6fd1;
 }
+
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: white;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3f8ef7;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AgendaService } from '../model/agenda-service';
-import { Contato } from '../model/contato';
+import { Contato, TipoContato } from '../model/contato';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -10,9 +10,8 @@ import { DatePipe } from '@angular/common';
   styleUrl: './exibe-contatos.scss',
 })
 export class ExibeContatos {
+    TipoContato = TipoContato
     #agendaService = inject(AgendaService)  
-
-    constructor() { }
 
     remover(cc: Contato) {
       this.#agendaService.remover(cc);
